@@ -137,6 +137,12 @@ NSString * const ID = @"SDCycleScrollViewCell";
     _flowLayout = flowLayout;
     
     UICollectionView *mainView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:flowLayout];
+    if (self.isRTL) {
+        if (@available(iOS 9.0, *)) {
+            mainView.semanticContentAttribute = UISemanticContentAttributeForceLeftToRight;
+        }
+    }
+    
     mainView.backgroundColor = [UIColor clearColor];
     mainView.pagingEnabled = YES;
     mainView.showsHorizontalScrollIndicator = NO;
@@ -433,7 +439,8 @@ NSString * const ID = @"SDCycleScrollViewCell";
 {
     if (0 == _totalItemsCount) return;
     int currentIndex = [self currentIndex];
-    int targetIndex = currentIndex + 1;
+    int value = self.isRTL ? -1 : 1;
+    int targetIndex = currentIndex + value;
     [self scrollToIndex:targetIndex];
 }
 

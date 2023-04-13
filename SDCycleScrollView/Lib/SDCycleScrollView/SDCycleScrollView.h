@@ -120,6 +120,9 @@ typedef enum {
 /** 是否自动滚动,默认Yes */
 @property (nonatomic,assign) BOOL autoScroll;
 
+/** 是否为RTL,默认NO  用于阿语适配 */
+@property (nonatomic,assign) BOOL isRTL;
+
 /** 图片滚动方向，默认为水平滚动 */
 @property (nonatomic, assign) UICollectionViewScrollDirection scrollDirection;
 
