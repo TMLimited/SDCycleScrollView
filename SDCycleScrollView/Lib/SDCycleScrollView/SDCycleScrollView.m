@@ -137,10 +137,8 @@ NSString * const ID = @"SDCycleScrollViewCell";
     _flowLayout = flowLayout;
     
     UICollectionView *mainView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:flowLayout];
-    if (self.isRTL) {
-        if (@available(iOS 9.0, *)) {
-            mainView.semanticContentAttribute = UISemanticContentAttributeForceLeftToRight;
-        }
+    if (@available(iOS 9.0, *)) {
+        mainView.semanticContentAttribute = UISemanticContentAttributeForceLeftToRight;
     }
     
     mainView.backgroundColor = [UIColor clearColor];
